@@ -1,0 +1,31 @@
+.wrapper {
+  width: 982px;
+  padding: 40px;
+  overflow: scroll;
+}
+
+.titleWrapper {
+  margin-bottom: 24px;
+}
+
+.imageList {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.imageWrapper {
+  border-radius: 10px;
+  height: 310px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+}
+
+.description {
+  margin-bottom: 44px;
+}

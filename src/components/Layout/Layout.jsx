@@ -1,10 +1,13 @@
+import Container from "../Container/Container";
 import Navigation from "../Navigation/Navigation";
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <main>{children}</main>
+      <Container>
+        <main>{children}</main>
+      </Container>
     </>
   );
 };
