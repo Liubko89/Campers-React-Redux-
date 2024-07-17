@@ -1,13 +1,21 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import { useDispatch } from "react-redux";
+import { getCampers } from "./redux/campers/operations";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const CatalogPage = lazy(() => import("./pages/Catalog"));
 const FavoritesPage = lazy(() => import("./pages/Favorites"));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCampers());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Suspense fallback={null}>

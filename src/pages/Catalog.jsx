@@ -1,5 +1,7 @@
+import CampersList from "../components/CampersList/CampersList";
+
 const Catalog = () => {
-  return <div>Catalog page</div>;
+  return <CampersList />;
 };
 
 export default Catalog;
