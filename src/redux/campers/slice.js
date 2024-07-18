@@ -7,6 +7,7 @@ const initialState = {
   page: 1,
   isLoading: false,
   error: null,
+  full: false,
 };
 
 const handlePending = (state) => {
@@ -46,6 +47,7 @@ const campersSlice = createSlice({
       .addCase(loadMoreCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        if (action.payload.length < 4) state.full = true;
         state.items.push(...action.payload);
       })
       .addCase(loadMoreCampers.rejected, handleRejected);

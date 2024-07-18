@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLoading, selectPage } from "../../redux/campers/selectors";
+import {
+  selectFullList,
+  selectIsLoading,
+  selectPage,
+} from "../../redux/campers/selectors";
 import CampersItem from "../CampersItem/CampersItem";
 import css from "./CampersList.module.css";
 import { increment } from "../../redux/campers/slice";
@@ -8,6 +12,7 @@ import { loadMoreCampers } from "../../redux/campers/operations";
 const CampersList = ({ campers }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  const isFullList = useSelector(selectFullList);
   const page = useSelector(selectPage);
 
   return isLoading ? (
@@ -26,14 +31,16 @@ const CampersList = ({ campers }) => {
         </ul>
       )}
 
-      <button
-        onClick={() => {
-          dispatch(increment());
-          dispatch(loadMoreCampers(page));
-        }}
-      >
-        Load more
-      </button>
+      {!isFullList && (
+        <button
+          onClick={() => {
+            dispatch(increment());
+            dispatch(loadMoreCampers(page));
+          }}
+        >
+          Load more
+        </button>
+      )}
     </>
   );
 };
