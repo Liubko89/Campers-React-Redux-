@@ -2,12 +2,18 @@ import { useState } from "react";
 import css from "./CampersItem.module.css";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import CamperDetailedInfo from "../CamperDetailedInfo/CamperDetailedInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { favorite } from "../../redux/campers/slice";
+import { selectFavorites } from "../../redux/campers/selectors";
 
 const CampersItem = ({ camper }) => {
+  const favorites = useSelector(selectFavorites);
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const onCloseModal = () => setIsOpen(false);
 
   const {
+    id,
     name,
     price,
     rating,
@@ -37,7 +43,18 @@ const CampersItem = ({ camper }) => {
           <h2 className={css.name}>{name}</h2>
           <div>
             <span className={css.price}>€{price}</span>
-            <button className={css.heartBtn}>heart</button>
+            <button
+              className={
+                !favorites.find((el) => el.id === id)
+                  ? css.heartBtn
+                  : css.redHeart
+              }
+              onClick={() => {
+                dispatch(favorite(id));
+              }}
+            >
+              heart
+            </button>
           </div>
         </div>
         <span className={css.rating}>

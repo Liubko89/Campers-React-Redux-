@@ -4,6 +4,7 @@ import { getCampers } from "./operations";
 const initialState = {
   items: [],
   favorites: [],
+  page: 1,
   isLoading: false,
   error: null,
 };
@@ -20,17 +21,29 @@ const handleRejected = (state, action) => {
 const campersSlice = createSlice({
   name: "campers",
   initialState,
-
+  reducers: {
+    increment: (state) => {
+      state.page += 1;
+    },
+    favorite: (state, { payload }) => {
+      const index = state.favorites.findIndex((el) => el.id === payload);
+      index === -1
+        ? state.favorites.push(state.items.find((el) => el.id === payload))
+        : state.favorites.splice(index, 1);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCampers.pending, handlePending)
       .addCase(getCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        state.items.push(...action.payload);
       })
       .addCase(getCampers.rejected, handleRejected);
   },
 });
+
+export const { increment, favorite } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;
