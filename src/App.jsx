@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getCampers());
-  }, [dispatch]);
+  });
 
   return (
     <Layout>
