@@ -8,6 +8,7 @@ import CampersItem from "../CampersItem/CampersItem";
 import css from "./CampersList.module.css";
 import { increment } from "../../redux/campers/slice";
 import { loadMoreCampers } from "../../redux/campers/operations";
+import Loader from "../Loader/Loader";
 
 const CampersList = ({ campers }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const CampersList = ({ campers }) => {
   const page = useSelector(selectPage);
 
   return isLoading ? (
-    <p>loading</p>
+    <Loader />
   ) : (
     <>
       {campers.length > 0 && (
@@ -31,7 +32,7 @@ const CampersList = ({ campers }) => {
         </ul>
       )}
 
-      {!isFullList && (
+      {!isFullList && !isLoading && (
         <button
           onClick={() => {
             dispatch(increment());

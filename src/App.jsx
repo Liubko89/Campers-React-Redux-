@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import { useDispatch } from "react-redux";
 import { getCampers } from "./redux/campers/operations";
+import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const CatalogPage = lazy(() => import("./pages/Catalog"));
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <Layout>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />

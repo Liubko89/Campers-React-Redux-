@@ -1,5 +1,8 @@
+import { useState } from "react";
 import BookingForm from "../BookingForm/BookingForm";
 import css from "./CamperDetailedInfo.module.css";
+import Features from "../Features/Features";
+import Reviews from "../Reviews/Reviews";
 
 const CamperDetailedInfo = ({
   camper: {
@@ -16,6 +19,8 @@ const CamperDetailedInfo = ({
     adults,
   },
 }) => {
+  const [showReviews, setShowReviews] = useState(false);
+
   return (
     <div className={css.wrapper}>
       <div className={css.titleWrapper}>
@@ -46,10 +51,39 @@ const CamperDetailedInfo = ({
         </ul>
         <p className={css.description}>{description}</p>
       </div>
-      <button type="button">Features</button>
-      <button type="button">Reviews</button>
+      <button
+        type="button"
+        onClick={() => {
+          setShowReviews(false);
+        }}
+      >
+        Features
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setShowReviews(true);
+        }}
+      >
+        Reviews
+      </button>
       <div>
         <BookingForm />
+        {!showReviews && (
+          <Features
+            adults={adults}
+            transmission={transmission}
+            airConditioner={details.airConditioner}
+            engine={engine}
+            kitchen={details.kitchen}
+            beds={details.beds}
+            freezer={details.freezer}
+            CD={details.CD}
+            radio={details.radio}
+            hob={details.hob}
+          />
+        )}
+        {showReviews && <Reviews reviews={reviews} />}
       </div>
     </div>
   );

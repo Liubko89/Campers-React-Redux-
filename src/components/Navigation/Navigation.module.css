@@ -1,0 +1,26 @@
+.header {
+  margin: 0 auto;
+  padding: 20px 64px 20px;
+  max-width: 1440px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  max-width: 120px;
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+  border-left: 1px solid var(--decor);
+  border-bottom: 1px solid var(--decor);
+  background-color: blue;
+}
