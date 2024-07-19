@@ -1,5 +1,14 @@
+:root {
+  --primary: #e44848;
+  --main-text: #101828;
+  --background: #11121366;
+  --light: #f2f4f7;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: Inter, sans-serif;
+  color: var(--main-text);
+  line-height: 1.25;
 }
 
 h1,

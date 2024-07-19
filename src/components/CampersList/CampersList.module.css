@@ -6,6 +6,8 @@
 
 .item {
   padding: 24px;
+  max-width: 888px;
+  margin: 0 auto;
   width: 100%;
   border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 20px;

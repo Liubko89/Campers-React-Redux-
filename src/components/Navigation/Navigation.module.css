@@ -7,20 +7,21 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
   width: 100%;
 }
 
 .link {
   text-decoration: none;
+  font-size: 32px;
+  line-height: 1.7;
   max-width: 120px;
   text-align: center;
+  text-shadow: 1px 0 2px var(--primary);
 }
 
 .active {
   font-weight: bold;
-  border-left: 1px solid var(--decor);
-  border-bottom: 1px solid var(--decor);
-  background-color: blue;
+  border-bottom: 1px solid var(--primary);
 }
