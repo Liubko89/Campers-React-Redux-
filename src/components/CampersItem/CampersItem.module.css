@@ -32,10 +32,6 @@
   letter-spacing: 0;
 }
 
-.price {
-  margin-right: 10px;
-}
-
 .description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -48,6 +44,30 @@
   gap: 8px;
 }
 
+.priceBtnWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.heartBtn {
+  pointer-events: none;
+  stroke: var(--main-text);
+  fill: transparent;
+}
+
 .redHeart {
-  background-color: red;
+  pointer-events: none;
+  stroke: var(--primary);
+  fill: var(--primary);
 }

@@ -5,6 +5,7 @@ import CamperDetailedInfo from "../CamperDetailedInfo/CamperDetailedInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { favorite } from "../../redux/campers/slice";
 import { selectFavorites } from "../../redux/campers/selectors";
+import sprite from "../../assets/icons/sprite.svg";
 
 const CampersItem = ({ camper }) => {
   const favorites = useSelector(selectFavorites);
@@ -41,19 +42,25 @@ const CampersItem = ({ camper }) => {
       <div className={css.titleWrapper}>
         <div className={css.title}>
           <h2 className={css.name}>{name}</h2>
-          <div>
+          <div className={css.priceBtnWrap}>
             <span className={css.price}>€{price}</span>
             <button
-              className={
-                !favorites.find((el) => el.id === id)
-                  ? css.heartBtn
-                  : css.redHeart
-              }
+              className={css.btn}
               onClick={() => {
                 dispatch(favorite(id));
               }}
             >
-              heart
+              <svg
+                className={
+                  !favorites.find((el) => el.id === id)
+                    ? css.heartBtn
+                    : css.redHeart
+                }
+                width="24"
+                height="24"
+              >
+                <use href={`${sprite}#icon-Heart`}></use>
+              </svg>
             </button>
           </div>
         </div>

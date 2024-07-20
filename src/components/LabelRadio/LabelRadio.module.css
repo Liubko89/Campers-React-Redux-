@@ -1,0 +1,42 @@
+.label {
+  display: block;
+  position: relative;
+  width: max-content;
+  height: max-content;
+}
+
+.radio {
+  appearance: none;
+  width: 114px;
+  height: 96px;
+  border: 1px solid var(--light-border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.radio:checked {
+  border-color: var(--primary);
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.icon {
+  stroke: var(--main-text);
+  fill: transparent;
+}
+
+.text {
+  font-size: 16px;
+  text-align: center;
+}

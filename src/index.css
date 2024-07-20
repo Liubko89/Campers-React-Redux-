@@ -1,8 +1,14 @@
 :root {
-  --primary: #e44848;
-  --main-text: #101828;
-  --background: #11121366;
-  --light: #f2f4f7;
+  --primary: rgb(228, 72, 72);
+  --primary-hover: rgb(216, 67, 67);
+  --aditional: #ffc531;
+  --main-text: rgb(16, 24, 40);
+  --secondary-text: rgb(71, 84, 103);
+  --light-text: rgba(16, 24, 40, 0.6);
+  --light-border: rgba(16, 24, 40, 0.1);
+  --background: rgba(17, 18, 19, 0.4);
+  --light: rgb(242, 244, 247);
+  --light-strong: rgb(247, 247, 247);
 }
 
 body {
@@ -31,4 +37,8 @@ ol {
 img {
   display: block;
   max-width: 100%;
+}
+
+button {
+  padding: 0;
 }

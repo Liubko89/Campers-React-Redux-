@@ -1,8 +1,76 @@
-.aside {
+.sideBar {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   min-width: 360px;
-  height: 800px;
-  background-color: blue;
-  border: 10px solid black;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--light-text);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.locationLabel {
+  position: relative;
+  display: block;
+}
+
+.locationIcon {
+  stroke: var(--light-text);
+  fill: transparent;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.locationInput {
+  width: 100%;
+  max-width: 360px;
+  height: 56px;
+  border-radius: 10px;
+  padding: 18px 18px 18px 44px;
+  background-color: var(--light-strong);
+  border: none;
+  outline: none;
+}
+
+.locationInput:focus + .locationIcon {
+  stroke: var(--main-text);
+}
+
+.subTitle {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--light-border);
+}
+
+.equipList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.btn {
+  width: max-content;
+  padding: 16px 60px;
+  border-radius: 200px;
+  border: none;
+  color: var(--light-strong);
+  background-color: var(--primary);
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
 }
