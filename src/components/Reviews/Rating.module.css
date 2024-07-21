@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.yellowStar {
+  stroke: var(--aditional);
+  fill: var(--aditional);
+}
+
+.greyStar {
+  stroke: var(--light);
+  fill: var(--light);
+}

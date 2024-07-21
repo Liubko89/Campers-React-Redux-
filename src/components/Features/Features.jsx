@@ -80,7 +80,7 @@ const Features = ({
             {freezer} air conditioner
           </span>
         </li>
-        {CD && (
+        {CD > 0 && (
           <li className={css.listItem}>
             <span className={css.item}>
               <svg className={css.iconCD} width="20" height="20">
@@ -90,7 +90,7 @@ const Features = ({
             </span>
           </li>
         )}
-        {radio && (
+        {radio > 0 && (
           <li className={css.listItem}>
             <span className={css.item}>
               <svg className={css.iconRadio} width="20" height="20">
@@ -120,7 +120,6 @@ const Features = ({
           </div>
         </li>
         <li>
-          {" "}
           <div className={css.detailsWrap}>
             <span>Length</span>
             <span>{length}</span>
