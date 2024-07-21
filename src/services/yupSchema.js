@@ -14,6 +14,5 @@ export const bookingSchema = Yup.object().shape({
 export const filterSchema = Yup.object().shape({
   location: Yup.string()
     .min(2, "The field must be at least 2 characters!")
-    .max(50, "The field must be less than 50 characters!")
-    .required("Location field is required!"),
+    .max(50, "The field must be less than 50 characters!"),
 });

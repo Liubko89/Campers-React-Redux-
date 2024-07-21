@@ -12,8 +12,6 @@ const INITIAL_FORM_DATA = {
 
 const Sidebar = () => {
   const handleSubmit = (data, actions) => {
-    console.log(data);
-
     actions.resetForm();
   };
 
@@ -124,7 +122,7 @@ const Sidebar = () => {
             </div>
           </div>
 
-          <button className={css.btn} type="submit">
+          <button onSubmit={handleSubmit} className={css.btn} type="submit">
             <span>Search</span>
           </button>
         </Form>
