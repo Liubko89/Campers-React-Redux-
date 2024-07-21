@@ -15,7 +15,6 @@
 }
 
 .input,
-.inputDate,
 .textarea {
   border: none;
   outline: none;
@@ -28,6 +27,7 @@
 }
 
 .calendar {
+  display: block;
   position: relative;
 }
 
@@ -35,8 +35,9 @@
   position: absolute;
   stroke: var(--main-text);
   fill: transparent;
-  top: 0;
+  top: 18px;
   right: 18px;
+  pointer-events: none;
 }
 
 .textarea {

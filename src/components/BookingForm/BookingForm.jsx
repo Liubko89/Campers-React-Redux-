@@ -52,10 +52,6 @@ const BookingForm = () => {
           </label>
 
           <label className={css.calendar}>
-            <svg className={css.iconCalendar} width="20" height="20">
-              <use href={`${sprite}#icon-Button`}></use>
-            </svg>
-
             <Field name="bookingDate">
               {({ field, form }) => (
                 <DatePicker
@@ -63,12 +59,15 @@ const BookingForm = () => {
                   name={field.name}
                   selected={field.value}
                   onChange={(date) => form.setFieldValue(field.name, date)}
-                  dateFormat="iiii, dd, MM, yyyy"
                   autoComplete="off"
                   placeholderText="Booking date"
                 />
               )}
             </Field>
+
+            <svg className={css.iconCalendar} width="20" height="20">
+              <use href={`${sprite}#icon-Button`}></use>
+            </svg>
 
             <ErrorMessage
               className="errorMsg"

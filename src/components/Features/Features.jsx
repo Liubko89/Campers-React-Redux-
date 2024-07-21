@@ -38,14 +38,16 @@ const Features = ({
             {transmission}
           </span>
         </li>
-        <li className={css.listItem}>
-          <span className={css.item}>
-            <svg className={css.icon} width="20" height="20">
-              <use href={`${sprite}#icon-Users`}></use>
-            </svg>
-            {airConditioner} AC
-          </span>
-        </li>
+        {airConditioner > 0 && (
+          <li className={css.listItem}>
+            <span className={css.item}>
+              <svg className={css.icon} width="20" height="20">
+                <use href={`${sprite}#icon-Users`}></use>
+              </svg>
+              {airConditioner} AC
+            </span>
+          </li>
+        )}
         <li className={css.listItem}>
           <span className={css.item}>
             <svg className={css.icon} width="20" height="20">
@@ -54,32 +56,38 @@ const Features = ({
             {engine}
           </span>
         </li>
-        <li className={css.listItem}>
-          <span className={css.item}>
-            <svg className={css.iconKitchen} width="20" height="20">
-              <use href={`${sprite}#icon-Horizontal-container`}></use>
-            </svg>
-            {kitchen}kitchen
-          </span>
-        </li>
-        <li className={css.listItem}>
-          <span className={css.item}>
-            <svg className={css.iconBeds} width="20" height="20">
-              <use href={`${sprite}#icon-Container-1`}></use>
-            </svg>
-            {beds} beds
-          </span>
-        </li>
-        <li className={css.listItem}>
-          <span className={css.item}>
-            <svg className={css.iconFreezer} width="20" height="20">
-              <use
-                href={`${sprite}#icon-streamline_hotel-air-conditioner`}
-              ></use>
-            </svg>
-            {freezer} air conditioner
-          </span>
-        </li>
+        {kitchen > 0 && (
+          <li className={css.listItem}>
+            <span className={css.item}>
+              <svg className={css.iconKitchen} width="20" height="20">
+                <use href={`${sprite}#icon-Horizontal-container`}></use>
+              </svg>
+              {kitchen}kitchen
+            </span>
+          </li>
+        )}
+        {beds > 0 && (
+          <li className={css.listItem}>
+            <span className={css.item}>
+              <svg className={css.iconBeds} width="20" height="20">
+                <use href={`${sprite}#icon-Container-1`}></use>
+              </svg>
+              {beds} beds
+            </span>
+          </li>
+        )}
+        {freezer > 0 && (
+          <li className={css.listItem}>
+            <span className={css.item}>
+              <svg className={css.iconFreezer} width="20" height="20">
+                <use
+                  href={`${sprite}#icon-streamline_hotel-air-conditioner`}
+                ></use>
+              </svg>
+              {freezer} air conditioner
+            </span>
+          </li>
+        )}
         {CD > 0 && (
           <li className={css.listItem}>
             <span className={css.item}>
@@ -100,16 +108,18 @@ const Features = ({
             </span>
           </li>
         )}
-        <li className={css.listItem}>
-          <span className={css.item}>
-            <svg className={css.iconHob} width="20" height="20">
-              <use
-                href={`${sprite}#icon-icon-park-outline_hand-painted-plate`}
-              ></use>
-            </svg>
-            {hob} hob
-          </span>
-        </li>
+        {hob > 0 && (
+          <li className={css.listItem}>
+            <span className={css.item}>
+              <svg className={css.iconHob} width="20" height="20">
+                <use
+                  href={`${sprite}#icon-icon-park-outline_hand-painted-plate`}
+                ></use>
+              </svg>
+              {hob} hob
+            </span>
+          </li>
+        )}
       </ul>
       <h3 className={css.detailsTitle}>Vehicle details</h3>
       <ul className={css.detailsList}>
