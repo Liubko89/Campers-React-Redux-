@@ -13,15 +13,15 @@
 }
 
 .link {
+  color: var(--secondary-text);
   text-decoration: none;
   font-size: 32px;
   line-height: 1.7;
   max-width: max-content;
   text-align: center;
-  text-shadow: 1px 0 2px var(--primary);
+  text-shadow: 1px 0 2px var(--light);
 }
 
 .active {
-  font-weight: bold;
   border-bottom: 1px solid var(--primary);
 }
