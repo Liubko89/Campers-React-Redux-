@@ -15,16 +15,28 @@
 }
 
 .input,
+.inputDate,
 .textarea {
   border: none;
   outline: none;
-  max-width: 400px;
-  width: 100%;
+  width: 400px;
   height: 56px;
   background-color: var(--light-strong);
   margin-bottom: 14px;
   padding: 18px;
   border-radius: 10px;
+}
+
+.calendar {
+  position: relative;
+}
+
+.iconCalendar {
+  position: absolute;
+  stroke: var(--main-text);
+  fill: transparent;
+  top: 0;
+  right: 18px;
 }
 
 .textarea {

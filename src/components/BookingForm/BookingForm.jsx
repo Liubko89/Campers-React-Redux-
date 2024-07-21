@@ -1,17 +1,20 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { bookingSchema } from "../../services/yupSchema";
 import css from "./BookingForm.module.css";
-
-const INITIAL_FORM_DATA = {
-  name: "",
-  email: "",
-  bookingDate: "",
-  comment: "",
-};
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import sprite from "../../assets/icons/sprite.svg";
 
 const BookingForm = () => {
-  const handleSubmit = (data, actions) => {
+  const handleSubmit = (_, actions) => {
     actions.resetForm();
+  };
+
+  const INITIAL_FORM_DATA = {
+    name: "",
+    email: "",
+    bookingDate: "",
+    comment: "",
   };
 
   return (
@@ -32,7 +35,7 @@ const BookingForm = () => {
               type="text"
               name="name"
               placeholder="Name"
-              autoComplete="off"
+              autoComplete="on"
             />
             <ErrorMessage className="errorMsg" name="name" component="span" />
           </label>
@@ -48,14 +51,25 @@ const BookingForm = () => {
             <ErrorMessage className="errorMsg" name="email" component="span" />
           </label>
 
-          <label>
-            <Field
-              className={css.input}
-              type="date"
-              name="bookingDate"
-              placeholder="Booking date"
-              autoComplete="off"
-            />
+          <label className={css.calendar}>
+            <svg className={css.iconCalendar} width="20" height="20">
+              <use href={`${sprite}#icon-Button`}></use>
+            </svg>
+
+            <Field name="bookingDate">
+              {({ field, form }) => (
+                <DatePicker
+                  className={css.input}
+                  name={field.name}
+                  selected={field.value}
+                  onChange={(date) => form.setFieldValue(field.name, date)}
+                  dateFormat="iiii, dd, MM, yyyy"
+                  autoComplete="off"
+                  placeholderText="Booking date"
+                />
+              )}
+            </Field>
+
             <ErrorMessage
               className="errorMsg"
               name="bookingDate"
