@@ -105,5 +105,8 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M24 8l-16 16"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M8 8l16 16"></path>
 </symbol>
+<symbol id="icon-Rating1" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M5.333 5.333l3.333 3.333M18 8.667c-1.242-1.217-2.914-1.895-4.653-1.886s-3.404 0.703-4.634 1.933-1.924 2.895-1.933 4.634c-0.009 1.739 0.669 3.411 1.886 4.653M20 6.667l-13.333 13.333M18.667 22.667v0.013M13.333 21.333v0.013M17.333 17.333v0.013M21.333 13.333v0.013M14.667 26.667v0.013M22.667 18.667v0.013M26.667 14.667v0.013"></path>
+</symbol>
 </defs>
 </svg>

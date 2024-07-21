@@ -78,7 +78,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <LabelRadio
-                  icon={"icon-Rating"}
+                  icon={"icon-Rating1"}
                   title={"Shower/WC"}
                   value={"bathroom"}
                 />
