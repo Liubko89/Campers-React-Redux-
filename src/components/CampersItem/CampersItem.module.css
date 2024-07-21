@@ -38,12 +38,6 @@
   white-space: nowrap;
 }
 
-.detailsList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
 .priceBtnWrap {
   display: flex;
   align-items: center;
@@ -70,4 +64,78 @@
   pointer-events: none;
   stroke: var(--primary);
   fill: var(--primary);
+  transition: 300ms ease-in-out;
+}
+
+.redHeart:hover,
+.redHeart:focus {
+  stroke: var(--primary-hover);
+  fill: var(--primary-hover);
+}
+
+.rating {
+  text-decoration: underline;
+}
+
+.rating,
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-right: 16px;
+}
+
+.ratingIcon {
+  stroke: var(--aditional);
+  fill: var(--aditional);
+}
+
+.locationIcon {
+  stroke: var(--main-text);
+  fill: transparent;
+}
+
+.description {
+  line-height: 24px;
+  color: var(--secondary-text);
+}
+
+.detailsList {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 8px;
+}
+
+.detailsItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background-color: var(--light);
+  font-weight: 500;
+}
+
+.icon {
+  stroke: var(--main-text);
+  fill: transparent;
+}
+
+.showMoreBtn {
+  width: max-content;
+  padding: 16px 40px;
+  border-radius: 200px;
+  color: var(--light-strong);
+  background-color: var(--primary);
+  transition: 300ms ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.showMoreBtn:hover,
+.showMoreBtn:focus {
+  background-color: var(--primary-hover);
 }

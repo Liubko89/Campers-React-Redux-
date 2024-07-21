@@ -3,6 +3,7 @@ import BookingForm from "../BookingForm/BookingForm";
 import css from "./CamperDetailedInfo.module.css";
 import Features from "../Features/Features";
 import Reviews from "../Reviews/Reviews";
+import sprite from "../../assets/icons/sprite.svg";
 
 const CamperDetailedInfo = ({
   camper: {
@@ -17,6 +18,12 @@ const CamperDetailedInfo = ({
     engine,
     transmission,
     adults,
+    form,
+    length,
+    width,
+    height,
+    tank,
+    consumption,
   },
 }) => {
   const [showReviews, setShowReviews] = useState(false);
@@ -26,12 +33,20 @@ const CamperDetailedInfo = ({
       <div className={css.titleWrapper}>
         <h2>{name}</h2>
         <span className={css.rating}>
+          <svg className={css.ratingIcon} width="16" height="16">
+            <use href={`${sprite}#icon-Rating`}></use>
+          </svg>
           {rating}({reviews.length} reviews)
         </span>
-        <span className={css.location}>{location}</span>
-        <div>
-          <span className={css.price}>€{price}</span>
-        </div>
+        <span className={css.location}>
+          <svg className={css.locationIcon} width="16" height="16">
+            <use href={`${sprite}#icon-map-pin`}></use>
+          </svg>
+          {location}
+        </span>
+
+        <span className={css.price}>€{price.toFixed(2)}</span>
+
         <ul className={css.imageList}>
           <li>
             <div className={css.imageWrapper}>
@@ -49,26 +64,30 @@ const CamperDetailedInfo = ({
             </div>
           </li>
         </ul>
+
         <p className={css.description}>{description}</p>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          setShowReviews(false);
-        }}
-      >
-        Features
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setShowReviews(true);
-        }}
-      >
-        Reviews
-      </button>
-      <div>
-        <BookingForm />
+      <div className={css.btnWrapper}>
+        <button
+          className={showReviews ? css.table : css.activeTable}
+          type="button"
+          onClick={() => {
+            setShowReviews(false);
+          }}
+        >
+          Features
+        </button>
+        <button
+          className={showReviews ? css.activeTable : css.table}
+          type="button"
+          onClick={() => {
+            setShowReviews(true);
+          }}
+        >
+          Reviews
+        </button>
+      </div>
+      <div className={css.bottomWrapper}>
         {!showReviews && (
           <Features
             adults={adults}
@@ -81,9 +100,16 @@ const CamperDetailedInfo = ({
             CD={details.CD}
             radio={details.radio}
             hob={details.hob}
+            form={form}
+            length={length}
+            width={width}
+            height={height}
+            tank={tank}
+            consumption={consumption}
           />
         )}
         {showReviews && <Reviews reviews={reviews} />}
+        <BookingForm />
       </div>
     </div>
   );

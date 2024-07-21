@@ -15,9 +15,9 @@ const BookingForm = () => {
   };
 
   return (
-    <>
-      <div>
-        <h3>Book your campervan now</h3>
+    <div className={css.wrapper}>
+      <div className={css.titleWrapper}>
+        <h3 className={css.title}>Book your campervan now</h3>
         <p>Stay connected! We are always ready to help you.</p>
       </div>
       <Formik
@@ -28,7 +28,7 @@ const BookingForm = () => {
         <Form className={css.form}>
           <label>
             <Field
-              className="input"
+              className={css.input}
               type="text"
               name="name"
               placeholder="Name"
@@ -39,7 +39,7 @@ const BookingForm = () => {
 
           <label>
             <Field
-              className="input"
+              className={css.input}
               type="email"
               name="email"
               placeholder="Email"
@@ -65,8 +65,9 @@ const BookingForm = () => {
 
           <label>
             <Field
-              className={css.input}
-              type="textarea"
+              as="textarea"
+              rows="5"
+              className={css.textarea}
               name="comment"
               placeholder="Comment"
               autoComplete="off"
@@ -78,12 +79,12 @@ const BookingForm = () => {
             />
           </label>
 
-          <button className="button-64" type="submit">
+          <button className={css.btn} type="submit">
             <span>Send</span>
           </button>
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 

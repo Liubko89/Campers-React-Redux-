@@ -1,0 +1,26 @@
+.nodalContent {
+  position: relative;
+}
+
+.closeBtn {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  cursor: pointer;
+  border: none;
+  transition: 400ms ease-in-out;
+}
+
+.closeIcon {
+  stroke: var(--main-text);
+}
+
+.closeBtn:hover > .closeIcon,
+.closeBtn:focus > .closeIcon {
+  scale: 1.05;
+}

@@ -1,4 +1,6 @@
 import Modal from "react-modal";
+import css from "./ModalWrapper.module.css";
+import sprite from "../../assets/icons/sprite.svg";
 
 Modal.setAppElement("#root");
 
@@ -31,9 +33,11 @@ const ModalWrapper = ({
       style={customStyles}
       contentLabel={contentLabel}
     >
-      <div>
-        <button type="button" onClick={onCloseModal}>
-          X
+      <div className={css.nodalContent}>
+        <button className={css.closeBtn} type="button" onClick={onCloseModal}>
+          <svg className={css.closeIcon} width="32" height="32">
+            <use href={`${sprite}#icon-Rating-1`}></use>
+          </svg>
         </button>
         {children}
       </div>

@@ -43,7 +43,7 @@ const CampersItem = ({ camper }) => {
         <div className={css.title}>
           <h2 className={css.name}>{name}</h2>
           <div className={css.priceBtnWrap}>
-            <span className={css.price}>€{price}</span>
+            <span className={css.price}>€{price.toFixed(2)}</span>
             <button
               className={css.btn}
               onClick={() => {
@@ -64,43 +64,80 @@ const CampersItem = ({ camper }) => {
             </button>
           </div>
         </div>
+
         <span className={css.rating}>
+          <svg className={css.ratingIcon} width="16" height="16">
+            <use href={`${sprite}#icon-Rating`}></use>
+          </svg>
           {rating}({reviews.length} reviews)
         </span>
-        <span className={css.location}>{location}</span>
+        <span className={css.location}>
+          <svg className={css.locationIcon} width="16" height="16">
+            <use href={`${sprite}#icon-map-pin`}></use>
+          </svg>
+          {location}
+        </span>
       </div>
 
       <p className={css.description}>{description}</p>
+
       <ul className={css.detailsList}>
-        <li className={css.detailsItem}>
-          <span>{adults} adults</span>
+        <li>
+          <span className={css.detailsItem}>
+            <svg width="20" height="20">
+              <use href={`${sprite}#icon-Users`}></use>
+            </svg>
+            {adults} adults
+          </span>
         </li>
         <li>
-          <span>{transmission}</span>
+          <span className={css.detailsItem}>
+            <svg className={css.icon} width="20" height="20">
+              <use href={`${sprite}#icon-Container`}></use>
+            </svg>
+            {transmission}
+          </span>
         </li>
         <li>
-          <span>{engine}</span>
+          <span className={css.detailsItem}>
+            <svg width="20" height="20">
+              <use href={`${sprite}#icon-Vertical-container`}></use>
+            </svg>
+            {engine}
+          </span>
         </li>
         {details.kitchen > 0 && (
           <li>
-            <span>kitchen</span>
+            <span className={css.detailsItem}>
+              <svg className={css.icon} width="20" height="20">
+                <use href={`${sprite}#icon-Horizontal-container`}></use>
+              </svg>
+              kitchen
+            </span>
           </li>
         )}
         {details.beds > 0 && (
           <li>
-            {details.beds > 1 ? (
-              <span>{details.beds} beds</span>
-            ) : (
-              <span>{details.beds} bed</span>
-            )}
+            <span className={css.detailsItem}>
+              <svg className={css.icon} width="20" height="20">
+                <use href={`${sprite}#icon-Container-1`}></use>
+              </svg>
+              {details.beds} {details.beds > 1 ? "beds" : "bed"}
+            </span>
           </li>
         )}
         {details.airConditioner > 0 && (
           <li>
-            <span>AC</span>
+            <span className={css.detailsItem}>
+              <svg width="20" height="20">
+                <use href={`${sprite}#icon-Vector`}></use>
+              </svg>
+              AC
+            </span>
           </li>
         )}
       </ul>
+
       <button
         className={css.showMoreBtn}
         type="button"
