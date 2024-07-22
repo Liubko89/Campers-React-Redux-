@@ -8,6 +8,7 @@ import sprite from "../../assets/icons/sprite.svg";
 const BookingForm = () => {
   const handleSubmit = (_, actions) => {
     actions.resetForm();
+    window.location.reload();
   };
 
   const INITIAL_FORM_DATA = {
@@ -84,11 +85,6 @@ const BookingForm = () => {
               name="comment"
               placeholder="Comment"
               autoComplete="off"
-            />
-            <ErrorMessage
-              className="errorMsg"
-              name="bookingDate"
-              component="span"
             />
           </label>
 

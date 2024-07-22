@@ -1,7 +1,7 @@
 import CampersList from "../components/CampersList/CampersList";
 import { useSelector } from "react-redux";
 import {
-  selectCampers,
+  selectFilteredCampers,
   selectFullList,
   selectIsLoading,
 } from "../redux/campers/selectors";
@@ -10,7 +10,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import Container from "../components/Container/Container";
 
 const Catalog = () => {
-  const campers = useSelector(selectCampers);
+  const campers = useSelector(selectFilteredCampers);
   const isFullList = useSelector(selectFullList);
   const isLoading = useSelector(selectIsLoading);
 

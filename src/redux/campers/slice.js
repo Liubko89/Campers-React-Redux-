@@ -3,6 +3,7 @@ import { getCampers, loadMoreCampers } from "./operations";
 
 const initialState = {
   items: [],
+  filter: null,
   favorites: [],
   page: 1,
   isLoading: false,
@@ -32,6 +33,9 @@ const campersSlice = createSlice({
         ? state.favorites.push(state.items.find((el) => el.id === payload))
         : state.favorites.splice(index, 1);
     },
+    filter: (state, { payload }) => {
+      state.filter = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -54,6 +58,6 @@ const campersSlice = createSlice({
   },
 });
 
-export const { increment, favorite } = campersSlice.actions;
+export const { increment, favorite, filter } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

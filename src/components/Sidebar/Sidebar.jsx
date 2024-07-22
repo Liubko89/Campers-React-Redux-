@@ -3,6 +3,8 @@ import css from "./Sidebar.module.css";
 import { filterSchema } from "../../services/yupSchema";
 import sprite from "../../assets/icons/sprite.svg";
 import LabelRadio from "../LabelRadio/LabelRadio";
+import { useDispatch } from "react-redux";
+import { filter } from "../../redux/campers/slice";
 
 const INITIAL_FORM_DATA = {
   location: "",
@@ -11,7 +13,12 @@ const INITIAL_FORM_DATA = {
 };
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (data, actions) => {
+    console.log(data);
+    dispatch(filter(data));
+
     actions.resetForm();
   };
 
