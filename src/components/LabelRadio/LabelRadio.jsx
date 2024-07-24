@@ -12,12 +12,12 @@ const LabelRadio = ({
 }) => {
   return (
     <label className={css.label}>
-      <div className={css.contentWrap}>
+      <span className={css.contentWrap}>
         <svg className={css.icon} width={width} height={height}>
           <use href={`${sprite}#${icon}`}></use>
         </svg>
         <span className={css.text}>{title}</span>
-      </div>
+      </span>
       <Field className={css.radio} type="radio" name={name} value={value} />
     </label>
   );
