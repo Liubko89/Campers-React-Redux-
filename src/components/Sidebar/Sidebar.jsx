@@ -15,11 +15,9 @@ const INITIAL_FORM_DATA = {
 const Sidebar = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (data, actions) => {
+  const handleSubmit = (data) => {
     console.log(data);
     dispatch(filter(data));
-
-    actions.resetForm();
   };
 
   return (

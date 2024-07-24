@@ -11,21 +11,34 @@ const filteredCampers = createSelector(
   [selectCampers, selectFilter],
   (campers, filter) => {
     if (!filter) return campers;
-    const filteredList = campers.filter((el) =>
-      el.location.toLowerCase().includes(filter.location.toLowerCase())
-    );
+
+    const filteredList = campers
+      .filter((el) =>
+        el.location.toLowerCase().includes(filter.location.toLowerCase())
+      )
+      .filter((el) => el.form === filter.type);
 
     switch (filter.equipment) {
       case "airConditioner":
         return filteredList.filter(
           (el) => el.details.airConditioner && el.details.airConditioner > 0
         );
+      case "automatic":
+        return filteredList.filter((el) => el.transmission === "automatic");
+      case "kitchen":
+        return filteredList.filter(
+          (el) => el.details.kitchen && el.details.kitchen > 0
+        );
+      case "TV":
+        return filteredList.filter((el) => el.details.TV && el.details.TV > 0);
+      case "bathroom":
+        return filteredList.filter(
+          (el) => el.details.bathroom && el.details.bathroom > 0
+        );
 
       default:
-        break;
+        return filteredList;
     }
-
-    return filteredList;
   }
 );
 
